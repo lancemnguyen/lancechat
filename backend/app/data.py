@@ -10,7 +10,7 @@ from fastapi import HTTPException
 load_dotenv()
 
 MONGO_URI = os.getenv("MONGODB_URI")
-DATABASE_NAME = "lanceaigeneral"
+DATABASE_NAME = os.getenv("DATABASE_NAME")
 
 # Initialize MongoDB connection
 # class MongoDB:
