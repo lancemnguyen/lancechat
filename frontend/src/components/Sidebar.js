@@ -96,7 +96,7 @@ const Sidebar = () => {
             </div>
           ))
         ) : (
-          <p>No conversations yet.</p>
+          <p className="text-white">Create your first conversation or sign in to see your stored conversations.</p>
         )}
       </div>
     </div>

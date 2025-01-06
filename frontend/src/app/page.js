@@ -116,6 +116,9 @@ const LoginPage = () => {
         <p className="mt-4 text-gray-400 text-center">
           Don't have an account? <a href="/signup" className="text-blue-500">Sign up</a>
         </p>
+        <p className="mt-4 text-gray-400 text-center">
+          Or try the demo <a href="/chatbots/demo" className="text-blue-500">here</a>!
+        </p>
       </div>
     </main>
   );
