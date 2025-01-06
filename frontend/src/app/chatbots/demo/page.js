@@ -1,8 +1,14 @@
 "use client";
 
+import { useEffect } from "react";
 import DemoChatbot from '../../../components/DemoChatbot';
 
 const DemoPage = () => {
+  useEffect(() => {
+    // Set userType to "demo" in localStorage when the demo page is accessed
+    localStorage.setItem("userType", "demo");
+  }, []);
+  
   return (
     <div className="flex justify-center items-center h-full">
       <div className="w-full max-w-3xl p-8 relative">
