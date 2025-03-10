@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
+import ReactMarkdown from 'react-markdown';
 
 const DemoChatbot = () => {
   const messageListRef = useRef(null); // Reference for message list
@@ -62,7 +63,7 @@ const DemoChatbot = () => {
                 msg.sender === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-black'
               }`}
             >
-              {msg.text}
+              <ReactMarkdown>{msg.text}</ReactMarkdown>
             </div>
           </div>
         ))}

@@ -1,6 +1,6 @@
 services:
   backend:
-    image: lance-ai_backend
+    image: 786631761627.dkr.ecr.us-west-1.amazonaws.com/lancechat/backend # lance-ai_backend
     container_name: lance-ai_backend_1
     build:
       context: ./backend
@@ -22,7 +22,7 @@ services:
       timeout: 10s
 
   frontend:
-    image: lance-ai_frontend
+    image: 786631761627.dkr.ecr.us-west-1.amazonaws.com/lancechat/frontend # lance-ai_frontend
     container_name: lance-ai_frontend_1
     build:
       context: ./frontend
