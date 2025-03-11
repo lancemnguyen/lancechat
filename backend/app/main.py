@@ -34,7 +34,7 @@ class NewMessageRequest(BaseModel):
     text: str
     conversation_id: str = None  # Make conversation_id optional
 
-@app.post("/api/conversations/")
+@app.post("/conversations/")
 async def create_new_conversation(request: UserConversationRequest):
     if not request.user_id:
         raise HTTPException(status_code=400, detail="User ID is required")
@@ -42,11 +42,11 @@ async def create_new_conversation(request: UserConversationRequest):
     conversation_id = await create_conversation(request.user_id, request.title)
     return {"id": conversation_id, "title": request.title}
 
-@app.get("/api/conversations/")
+@app.get("/conversations/")
 async def list_conversations(user_id: str):
     return await get_conversations(user_id)
 
-@app.get("/api/conversations/{conversation_id}")
+@app.get("/conversations/{conversation_id}")
 async def retrieve_conversation(conversation_id: str, user_id: str):
     conversation_id = validate_object_id(conversation_id)  # Validate here at request level
     conversation = await get_conversation(conversation_id, user_id)
@@ -54,7 +54,7 @@ async def retrieve_conversation(conversation_id: str, user_id: str):
         raise HTTPException(status_code=404, detail="Conversation not found")
     return conversation
 
-@app.post("/api/messages/")
+@app.post("/messages/")
 async def post_message(request: NewMessageRequest):
     if not request.text:
         raise HTTPException(status_code=400, detail="Message text is required")
@@ -111,7 +111,7 @@ async def post_message(request: NewMessageRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error communicating with OpenAI: {str(e)}")
 
-@app.delete("/api/conversations/{conversation_id}")
+@app.delete("/conversations/{conversation_id}")
 async def remove_conversation(conversation_id: str, user_id: str):
     success = await delete_conversation(conversation_id, user_id)
     if not success:
@@ -126,7 +126,7 @@ class DemoMessageRequest(BaseModel):
 # Temporary in-memory storage for demo conversations
 demo_conversations = {}
 
-@app.post("/api/demo/messages/")
+@app.post("/demo/messages/")
 async def post_demo_message(request: Request):
     # Get the message data from the request
     data = await request.json()
@@ -162,6 +162,6 @@ async def post_demo_message(request: Request):
             "conversation_title": "Demo Conversation",
         }
 
-@app.get("/api/health/")
+@app.get("/health/")
 async def health_check():
     return {"status": "OK"}
