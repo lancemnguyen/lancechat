@@ -23,11 +23,15 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
+        with:
+          mask-password: true # Add this line
+          registry-type: private
+          skip-logout: false
 
-      - name: Set up Docker Compose
+      - name: Set up Docker Compose v2
         run: |
           sudo apt-get update
-          sudo apt-get install docker-compose-plugin
+          sudo apt-get install docker-compose
 
       - name: Build and push Docker images
         run: |
