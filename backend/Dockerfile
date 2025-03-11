@@ -1,6 +1,16 @@
 # Use an official Python image as the base
 FROM python:3.11
 
+# Define build arguments
+ARG OPENAI_API_KEY
+ARG MONGODB_URI
+ARG DATABASE_NAME
+
+# Set environment variables
+ENV OPENAI_API_KEY=$OPENAI_API_KEY
+ENV MONGODB_URI=$MONGODB_URI
+ENV DATABASE_NAME=$DATABASE_NAME
+
 # Set the working directory
 WORKDIR /backend
 
