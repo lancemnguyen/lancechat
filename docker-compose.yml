@@ -64,7 +64,7 @@ services:
     depends_on:
       - frontend
       - backend
-    restart: "no" # unless-stopped
+    restart: "no"
 
 networks:
   webnet:
