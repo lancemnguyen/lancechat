@@ -51,7 +51,8 @@ services:
   nginx:
     image: nginx:stable-alpine
     container_name: nginx
-    command: ["sh", "-c", "nginx"] # <--- ADD THIS LINE: Overrides entrypoint
+    entrypoint: ""
+    command: ["nginx"] # <--- ADD THIS LINE: Overrides entrypoint
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
       # - /etc/letsencrypt:/etc/letsencrypt  # For Certbot SSL certificates
