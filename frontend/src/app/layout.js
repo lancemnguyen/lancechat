@@ -13,8 +13,8 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "LanceChat",
-  description: "My collection of GPTs",
+  title: "LanceChat - test",
+  description: "My collection of GPTs - test",
 };
 
 export default function RootLayout({ children }) {
