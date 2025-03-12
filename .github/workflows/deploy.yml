@@ -68,7 +68,6 @@ jobs:
             cd ${{ secrets.REMOTE_DIR }}
             set -e
             docker-compose down
-            docker-compose pull
             docker-compose pull 786631761627.dkr.ecr.us-west-1.amazonaws.com/lancechat/frontend
             docker-compose pull 786631761627.dkr.ecr.us-west-1.amazonaws.com/lancechat/backend
             docker-compose up -d --force-recreate
