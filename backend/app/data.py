@@ -52,11 +52,12 @@ def validate_object_id(id: str) -> ObjectId:
         raise HTTPException(status_code=400, detail="Invalid ID format")
 
 # CRUD Operations
-async def create_conversation(user_id: str, title: str) -> str:
+async def create_conversation(user_id: str, title: str, summary: str = None) -> str:
     new_conversation = {
         "user_id": user_id,
         "title": title,
         "messages": [],
+        "summary": summary,
         "created_at": datetime.utcnow()
     }
     result = await mongodb.conversations.insert_one(new_conversation)

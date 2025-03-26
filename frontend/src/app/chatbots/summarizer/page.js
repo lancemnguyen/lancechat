@@ -5,14 +5,14 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { auth } from "../../../lib/firebase";
 import { useConversations } from "../../../context/ConversationContext";
-import Chatbot from "../../../components/Chatbot";
+import Summarizer from "../../../components/Summarizer";
 
 const ChatbotPage = () => {
   const { addConversation } = useConversations();
   const [isClient, setIsClient] = useState(false);  // Track if we're on the client
   const [isAuthenticated, setIsAuthenticated] = useState(false);  // Track if the user is authenticated
   const [hasStartedChat, setHasStartedChat] = useState(false);  // Track if the user has sent their first message
-  const router = useRouter();
+  const router = useRouter();  // Declare router here from next/navigation
 
   // Check if the component has mounted client-side
   useEffect(() => {
@@ -27,8 +27,8 @@ const ChatbotPage = () => {
       if (!user) {
         router.push("/");  // Redirect to login if not authenticated
       } else {
-        setIsAuthenticated(true);
-        // console.log("User authenticated:", user);
+        setIsAuthenticated(true);  // Set authenticated state to true
+        // console.log("User authenticated:", user);  // Log when user is authenticated
       }
     });
 
@@ -52,10 +52,10 @@ const ChatbotPage = () => {
     <div className="flex justify-center items-center h-full">
       <div className="w-full max-w-3xl p-8 relative">
         <h1 className="text-3xl font-bold text-center mb-8 bg-clip-text">
-          Ask me anything!
+          Summarize an Article
         </h1>
         <div className="relative">
-          <Chatbot onFirstMessage={handleFirstMessage} />
+          <Summarizer onFirstMessage={handleFirstMessage} />
         </div>
       </div>
     </div>

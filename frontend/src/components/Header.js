@@ -56,10 +56,15 @@ const Header = () => {
           >
             General
           </button>
-          {/* <button className="text-blue-500 hover:underline">Summarizer</button>
-          <button className="text-blue-500 hover:underline">RAG</button> */}
-          <span className="text-gray-500">| Summarizer | RAG (In Progress)</span>
-          <span className="text-gray-500"></span>
+          <span className="text-gray-500">|</span>
+          <button
+            className="text-blue-500 hover:underline"
+            onClick={() => router.push("/chatbots/summarizer")}
+          >
+            Summarizer
+          </button>
+          {/* <button className="text-blue-500 hover:underline">RAG</button> */}
+          <span className="text-gray-500">| RAG (In Progress)</span>
         </nav>
 
         {/* Conditional rendering based on whether the user is a demo user */}

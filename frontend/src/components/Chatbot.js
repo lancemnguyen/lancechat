@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import axios from 'axios';
 import useFirebaseUid from "../hooks/useFirebaseUid";
+import ReactMarkdown from 'react-markdown';
 
 const Chatbot = ({ onFirstMessage }) => {
   const router = useRouter();
@@ -76,7 +77,7 @@ const Chatbot = ({ onFirstMessage }) => {
                 msg.sender === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-300 text-black'
               }`}
             >
-              {msg.text}
+              <ReactMarkdown>{msg.text}</ReactMarkdown>
             </div>
           </div>
         ))}
