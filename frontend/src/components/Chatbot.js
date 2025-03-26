@@ -23,7 +23,7 @@ const Chatbot = ({ onFirstMessage }) => {
     // });
 
     try {
-      const response = await axios.post(`${apiUrl}/messages/`,
+      const response = await axios.post(`${apiUrl}/api/messages/`,
         {
           sender: uid, // Use Firebase UID as the user identifier
           text,

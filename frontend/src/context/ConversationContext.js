@@ -18,7 +18,7 @@ export const ConversationProvider = ({ children }) => {
     setLoading(true);
     try {
       if (!user_id) return;
-      const response = await axios.get(`${apiUrl}/conversations/`, {
+      const response = await axios.get(`${apiUrl}/api/conversations/`, {
         params: { user_id },
       });
       setConversations(response.data || []);

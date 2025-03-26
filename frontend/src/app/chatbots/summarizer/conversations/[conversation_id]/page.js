@@ -21,7 +21,7 @@ const ConversationPage = ({ params }) => {
     const fetchConversation = async () => {
       if (!user_id) return;
       try {
-        const response = await axios.get(`${apiUrl}/conversations/${conversation_id}`, {
+        const response = await axios.get(`${apiUrl}/api/conversations/${conversation_id}`, {
           params: { user_id },
         });
         setMessages(response.data.messages || []);
@@ -50,7 +50,7 @@ const ConversationPage = ({ params }) => {
 
     setSending(true);
     try {
-      const response = await axios.post(`${apiUrl}/messages/`, {
+      const response = await axios.post(`${apiUrl}/api/messages/`, {
         sender: user_id,
         text: inputText,
         conversation_id,

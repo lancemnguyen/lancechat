@@ -14,7 +14,7 @@ const DemoChatbot = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post(`${apiUrl}/demo/messages/`, {
+      const response = await axios.post(`${apiUrl}/api/demo/messages/`, {
         sender: 'demo-user',
         text,
       });

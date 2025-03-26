@@ -19,7 +19,7 @@ const Sidebar = () => {
     if (!confirm('Are you sure you want to delete this conversation?')) return;
 
     try {
-      await axios.delete(`${apiUrl}/conversations/${id}`, {
+      await axios.delete(`${apiUrl}/api/conversations/${id}`, {
         params: { user_id: uid },
       });
       await fetchConversations();
