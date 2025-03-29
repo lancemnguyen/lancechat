@@ -10,7 +10,7 @@ This project replicates the functionality of ChatGPT, offering users an intuitiv
 
 - **Dynamic Chat Interface**: Clean, responsive design for engaging user interactions.
 - **Conversation History**: Allows users to revisit and manage past conversations.
-- **Multi-Chatbot Support**: Switch between different chatbot functionalities like summarization, Q&A, and general conversations.
+- **Multi-Chatbot Support**: Switch between different chatbot functionalities like summarization, RAG, and general conversations.
 - **User Authentication**: Secure login system with Firebase.
 - **Real-time Updates**: Powered by server-side API integrations for instant responses.
 
@@ -19,8 +19,7 @@ This project replicates the functionality of ChatGPT, offering users an intuitiv
 - **Frontend**: Next.js, React, Tailwind CSS
 - **Backend**: FastAPI
 - **Database**: MongoDB
-- **Authentication**: Firebase Authentication
-- **Hosting**: AWS, Docker
+- **DevOps**: AWS, Docker, Nginx, Firebase Authentication
 
 ## Motivation
 
