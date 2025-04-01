@@ -19,8 +19,7 @@ This project replicates the functionality of ChatGPT, offering users an intuitiv
 - **Frontend**: Next.js, React, Tailwind CSS
 - **Backend**: FastAPI
 - **Database**: MongoDB
-- **Authentication**: Firebase Authentication
-- **Hosting**: AWS, Docker
+- **DevOps**: AWS, Docker, Nginx, Firebase Authentication
 
 ## Motivation
 
