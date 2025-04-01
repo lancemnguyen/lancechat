@@ -10,9 +10,9 @@ import Summarizer from "../../../components/Summarizer";
 const ChatbotPage = () => {
   const { addConversation } = useConversations();
   const [isClient, setIsClient] = useState(false);  // Track if we're on the client
-  const [isAuthenticated, setIsAuthenticated] = useState(false);  // Track if the user is authenticated
-  const [hasStartedChat, setHasStartedChat] = useState(false);  // Track if the user has sent their first message
-  const router = useRouter();  // Declare router here from next/navigation
+  const [isAuthenticated, setIsAuthenticated] = useState(false);  // Track if user is authenticated
+  const [hasStartedChat, setHasStartedChat] = useState(false);  // Track if user has sent first message
+  const router = useRouter();
 
   // Check if the component has mounted client-side
   useEffect(() => {
@@ -27,8 +27,7 @@ const ChatbotPage = () => {
       if (!user) {
         router.push("/");  // Redirect to login if not authenticated
       } else {
-        setIsAuthenticated(true);  // Set authenticated state to true
-        // console.log("User authenticated:", user);  // Log when user is authenticated
+        setIsAuthenticated(true);
       }
     });
 

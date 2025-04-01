@@ -12,16 +12,16 @@ const Header = () => {
 
   // Check if the user is logged in and if they are a demo user
   useEffect(() => {
-    // Check for logged-in user from Firebase authentication
+    // check auth user
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        // User is logged in, set the regular user state
+        // set regular user state
         setUser(user);
-        setIsDemoUser(false);  // Regular user
+        setIsDemoUser(false);
       } else {
-        // No user logged in, check for demo user flag
+        // demo flag
         const userType = localStorage.getItem("userType");
-        setIsDemoUser(userType === "demo");  // If "demo", it's a demo user
+        setIsDemoUser(userType === "demo");
       }
     });
 

@@ -16,22 +16,17 @@ const Chatbot = ({ onFirstMessage }) => {
   const sendMessage = async (text) => {
     if (!text.trim()) return; // Prevent empty messages
     setLoading(true);
-    // console.log({
-    //   sender: uid, 
-    //   text,
-    //   conversation_id: conversationId
-    // });
 
     try {
       const response = await axios.post(`${apiUrl}/messages/`,
         {
-          sender: uid, // Use Firebase UID as the user identifier
+          sender: uid,
           text,
-          conversation_id: conversationId || undefined, // Pass if it exists
+          conversation_id: conversationId || undefined,
         }
       );
 
-      // console.log('Received response:', response.data); // Log response to check it
+      // console.log('Received response:', response.data);
 
       const { bot_response, conversation_id, conversation_title } = response.data;
 

@@ -29,7 +29,7 @@ const ConversationPage = ({ params }) => {
         setConversationTitle(response.data.title || `Conversation ${conversation_id.slice(-4)}`); // Set title
       } catch (err) {
         console.error('Error fetching conversation:', err);
-        setError('Failed to load conversation'); // seterror is not a function yet
+        setError('Failed to load conversation'); // not a function yet
       } finally {
         setLoading(false);
       }

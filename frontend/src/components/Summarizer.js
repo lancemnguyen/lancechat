@@ -22,14 +22,13 @@ const Summarizer = ({ url }) => {
       // If it's the first message, summarize the URL
       if (messages.length === 0) {
         const response = await axios.post(`${apiUrl}/summarize/`, { 
-          url: text, // Send the URL to the backend
-          sender: uid, // Include the user ID in the request
+          url: text,
+          sender: uid,
         });
-        // const summary = response.data.summary;
-        // const conversationId = response.data.conversation_id; // Get the conversation ID
+
         const { summary, conversation_id, conversation_title } = response.data;
 
-        // Set the summary as the first message
+        // Set summary as first message
         setMessages((prev) => [
           ...prev,
           { sender: 'bot', text: summary },
@@ -37,14 +36,13 @@ const Summarizer = ({ url }) => {
 
         addConversation({ id: conversation_id, title: conversation_title });
 
-        // Route to the conversation page with the conversation ID
         router.push(`/chatbots/summarizer/conversations/${conversation_id}`);
       } else {
-        // Send subsequent messages to the chatbot
+
         const response = await axios.post(`${apiUrl}/messages/`, {
           sender: uid,
           text,
-          conversation_id: conversationId || undefined, // Use the conversation ID from props
+          conversation_id: conversationId || undefined,
         });
 
         const { bot_response } = response.data;

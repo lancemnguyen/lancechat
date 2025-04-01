@@ -12,13 +12,7 @@ load_dotenv()
 MONGO_URI = os.getenv("MONGODB_URI")
 DATABASE_NAME = os.getenv("DATABASE_NAME")
 
-# Initialize MongoDB connection
-# class MongoDB:
-#     def __init__(self):
-#         self.client = AsyncIOMotorClient(MONGO_URI)
-#         self.database = self.client[DATABASE_NAME]
-#         self.conversations = self.database["conversations"]  # Collection for conversations
-
+# init MongoDB connection
 class MongoDB:
     client = None
 
@@ -31,7 +25,6 @@ class MongoDB:
 
 mongodb = MongoDB()
 
-# Pydantic models
 class Message(BaseModel):
     sender: str
     text: str
@@ -51,7 +44,6 @@ def validate_object_id(id: str) -> ObjectId:
     except InvalidId:
         raise HTTPException(status_code=400, detail="Invalid ID format")
 
-# CRUD Operations
 async def create_conversation(user_id: str, title: str, summary: str = None) -> str:
     new_conversation = {
         "user_id": user_id,

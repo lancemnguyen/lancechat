@@ -31,11 +31,10 @@ class UserConversationRequest(BaseModel):
     user_id: str
     title: str
 
-# Request model
 class NewMessageRequest(BaseModel):
     sender: str
     text: str
-    conversation_id: str = None  # Make conversation_id optional
+    conversation_id: str = None  # optional
 
 @app.post("/api/conversations/")
 async def create_new_conversation(request: UserConversationRequest):
@@ -87,6 +86,7 @@ async def post_message(request: NewMessageRequest):
 
     try:
         # no memory
+
         # validate_object_id(conversation_id)
         # user_message = Message(sender=request.sender, text=request.text)
         # await add_message(conversation_id, user_message)
@@ -102,6 +102,7 @@ async def post_message(request: NewMessageRequest):
         # )
 
         # with memory
+
         # Retrieve the conversation history
         conversation = await get_conversation(conversation_id, request.sender)
         if not conversation:
@@ -152,26 +153,27 @@ async def remove_conversation(conversation_id: str, user_id: str):
 class DemoMessageRequest(BaseModel):
     sender: str
     text: str
-    conversation_id: str  # Add this line to define the conversation_id field
+    conversation_id: str
 
 # Temporary in-memory storage for demo conversations
 demo_conversations = {}
 
 @app.post("/api/demo/messages/")
 async def post_demo_message(request: Request):
-    # Get the message data from the request
+    # Get message data from request
     data = await request.json()
     sender = data["sender"]
     text = data["text"]
 
     # Generate a temporary conversation ID for demo users
     if sender == "demo-user":
-        conversation_id = str(uuid.uuid4())  # Generate a unique temporary ID
-        # Store the conversation temporarily in memory
+        conversation_id = str(uuid.uuid4())  # unique temp ID
+
+        # temporarily store conversation in memory
         if conversation_id not in demo_conversations:
             demo_conversations[conversation_id] = []
         demo_conversations[conversation_id].append({"sender": sender, "text": text})
-        # Generate a static or limited response for the demo user
+
         client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
         try:
             response = client.chat.completions.create(
@@ -248,11 +250,11 @@ async def summarize(request: SummarizeRequest):
     )
     conversation_title = responsefortitle.choices[0].message.content.strip()
     
-    # Create a new conversation in your database
+    # Create a new conversation in database
     conversation_id = await create_conversation(
         user_id=request.sender,
         title=conversation_title,
-        summary=summary  # Store summary separately if needed
+        summary=summary  # can store summary separately if needed
     )
 
     # Add the summary as the first message in the messages array

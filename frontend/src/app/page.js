@@ -18,7 +18,7 @@ const LoginPage = () => {
     setLoading(true);  // Set loading to true when login starts
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/chatbots/general");  // Redirect to chatbot on successful login
+      router.push("/chatbots/general");  // Redirect on successful login
     } catch (error) {
       setError("Invalid email or password");
     } finally {

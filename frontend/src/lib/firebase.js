@@ -1,9 +1,7 @@
-// Import the necessary Firebase modules
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getAnalytics, isSupported } from "firebase/analytics";
 
-// Firebase configuration (find these details in the Firebase Console under project settings)
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -13,10 +11,10 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
-// Initialize Firebase
+// init firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firebase Analytics only if supported
+// init firebase analytics only if supported
 const initializeAnalytics = async () => {
   const supported = await isSupported();
   if (supported) {
@@ -24,7 +22,7 @@ const initializeAnalytics = async () => {
   }
 };
 
-initializeAnalytics();  // Call the function to initialize analytics
+initializeAnalytics();  // call to init analytics
 
 // Export the auth object to use in authentication-related operations
 export const auth = getAuth(app);

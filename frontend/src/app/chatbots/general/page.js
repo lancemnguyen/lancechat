@@ -10,8 +10,8 @@ import Chatbot from "../../../components/Chatbot";
 const ChatbotPage = () => {
   const { addConversation } = useConversations();
   const [isClient, setIsClient] = useState(false);  // Track if we're on the client
-  const [isAuthenticated, setIsAuthenticated] = useState(false);  // Track if the user is authenticated
-  const [hasStartedChat, setHasStartedChat] = useState(false);  // Track if the user has sent their first message
+  const [isAuthenticated, setIsAuthenticated] = useState(false);  // Track if user is authenticated
+  const [hasStartedChat, setHasStartedChat] = useState(false);  // Track if user has sent first message
   const router = useRouter();
 
   // Check if the component has mounted client-side
@@ -28,7 +28,6 @@ const ChatbotPage = () => {
         router.push("/");  // Redirect to login if not authenticated
       } else {
         setIsAuthenticated(true);
-        // console.log("User authenticated:", user);
       }
     });
 
