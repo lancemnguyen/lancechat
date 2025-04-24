@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import useFirebaseUid from "../hooks/useFirebaseUid";
 import ReactMarkdown from 'react-markdown';
-import { useConversations } from '../context/ConversationContext'; // Import the context
+import { useConversations } from '../context/ConversationContext';
 
 const Summarizer = ({ url }) => {
   const uid = useFirebaseUid();
