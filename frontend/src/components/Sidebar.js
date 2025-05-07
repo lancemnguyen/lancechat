@@ -48,7 +48,7 @@ const Sidebar = () => {
   }, []);
 
   return (
-    <div className="sidebar bg-gradient-to-b from-gray-800 to-blue-900 p-4 w-64 h-full border-r space-y-4 relative">
+    <div className="sidebar bg-gradient-to-b from-gray-800 to-blue-900 p-4 w-64 h-full border-r space-y-4 relative max-h-screen overflow-y-auto">
       <h2 className="text-xl font-bold text-white">LanceChat</h2>
       <button
         onClick={() => router.push('/chatbots/general')}
@@ -82,7 +82,7 @@ const Sidebar = () => {
                   <>
                     {/* Overlay to capture outside clicks */}
                     <div className="fixed inset-0 z-10" onClick={() => setDropdownOpen(null)}></div>
-                    <div className="dropdown-menu absolute top-0 -right-16 mt-1 bg-white border rounded shadow-lg z-20">
+                    <div className="dropdown-menu absolute top-0 right-0 mt-1 bg-white border rounded shadow-lg z-20">
                       <button
                         onClick={() => handleDeleteConversation(conv.id)}
                         className="bg-red-500 dropdown-item p-2 hover:bg-red-400 text-left w-full text-sm"
