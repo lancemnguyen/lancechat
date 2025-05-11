@@ -6,10 +6,10 @@ This project offers users an intuitive interface to interact with AI models. Bui
 
 ### Tech Stack
 
-Frontend: Next.js, React, Tailwind CSS
+**Frontend** : Next.js, React, Tailwind CSS
 
-Backend: FastAPI
+**Backend**: FastAPI
 
-Database: MongoDB
+**Database**: MongoDB
 
-DevOps: AWS, Docker, Nginx, Firebase Authentication
+**DevOps**: AWS, Docker, Nginx, Firebase Authentication
