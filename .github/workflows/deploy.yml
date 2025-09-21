@@ -3,7 +3,7 @@ name: Deploy to EC2 with ECR
 on:
   push:
     branches:
-      - ecr-deploy # Or your desired branch
+      - ecr-deploy # name of desired branch
 
 jobs:
   deploy:
